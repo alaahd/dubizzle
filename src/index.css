@@ -92,4 +92,5 @@ ul.gist {
     cursor: pointer;
     box-sizing: border-box; }
     ul.gist > li:last-child:hover {
-      border: 2px dashed #222; }
+      border: 2px dashed #222;
+      background: #f3f3f3; }

@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+/* import all required components */
 import UserInput from './components/UserInput';
+import GistStats from './components/GistStats';
+
 import ToggleDisplay from 'react-toggle-display';
 import Moment from 'react-moment';
 
 import './App.css';
 
+//To increase rate limits you can provide client-id and client-secret
+const CLIENT_ID = 'e7d3f4ff49e37a4037d2';
+const CLIENT_SECRET = '3194e739dd98743fed8ec3ae160bf9ee8f6db6df';
+const API_OAUTH = `?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
 const API_BASE_URL = 'https://api.github.com';
-const API_GISTS_URL = `${API_BASE_URL}/users/{username}/gists`;
+const API_GISTS_URL = `${API_BASE_URL}/users/{username}/gists${API_OAUTH}`;
 
 class App extends Component {
   constructor(props) {
@@ -68,6 +75,8 @@ class App extends Component {
   }
 
   renderGists(gist, index) {
+    const forksUrl = gist.forks_url + API_OAUTH;
+    const commentsUrl = gist.comments_url + API_OAUTH;
     return (
         <li key={gist.id}>
           <ul className="gist">
@@ -83,12 +92,7 @@ class App extends Component {
               </p>
             </li>
             <li>
-              <ul className="stats">
-                <li>{Object.keys(gist.files).length} files</li>
-                <li>forks</li>
-                <li>comments</li>
-                <li>stars</li>
-              </ul>
+              <GistStats files={Object.keys(gist.files).length} forksUrl={forksUrl} commentsUrl={commentsUrl} />
             </li>
             <li>
               <h3>{gist.id && gist.id}</h3>

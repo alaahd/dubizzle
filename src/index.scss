@@ -119,6 +119,7 @@ ul.gist {
     box-sizing: border-box;
     &:hover {
       border: 2px dashed #222;
+      background: lighten(#eeeeee, 2%);;
     }
   }
 }
