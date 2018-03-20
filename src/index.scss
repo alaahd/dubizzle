@@ -4,6 +4,28 @@
     box-sizing: border-box;
 }
 
+//define break points to target responsive design
+$M: 768px;
+
+// some helpful mixins
+
+@mixin desktop($w){
+  @media (min-width: $w) {
+    @content;
+  }
+}
+
+@mixin mobile($w){
+  @media (max-width: $w) {
+    @content;
+  }
+}
+
+html {
+  @include mobile($M) {
+    font-size: 14px;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -23,6 +45,10 @@ form {
   flex-direction: row;
   flex: 1;
   max-width: 80%;
+  @include mobile($M) {
+    max-width: 90%;
+    justify-content: center;
+  }
   margin: 0 auto;
 
   input[type=submit] {
@@ -35,11 +61,18 @@ form {
     border-radius: 5px;
     font-size: 1.5rem;
     margin-left: 2rem;
+    @include mobile($M) {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
   }
 
   input[type=text] {
       padding: 0.5rem 1rem;
       font-size: 1.5rem;
+      @include mobile($M) {
+        font-size: 1.2rem;
+      }
       border-radius: .5rem;
       border: 0 none;
       flex: 3;
@@ -79,6 +112,7 @@ ul.gists > li {
 
 ul.gist {
   /* parent properties */
+  font-size: 1rem;
   display: grid;
   grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr 1fr;
@@ -102,6 +136,13 @@ ul.gist {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @include mobile($M) {
+      display: grid;
+      grid-template-rows: max-content;
+      grid-template-columns: 1fr;
+      text-align: right;
+      font-size: smaller;
+    }
   }
 
   & > li:nth-of-type(1), & > li:nth-of-type(2) {

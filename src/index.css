@@ -2,6 +2,10 @@
 * {
   box-sizing: border-box; }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; } }
+
 body {
   margin: 0;
   padding: 0;
@@ -20,6 +24,10 @@ form {
   flex: 1;
   max-width: 80%;
   margin: 0 auto; }
+  @media (max-width: 768px) {
+    form {
+      max-width: 90%;
+      justify-content: center; } }
   form input[type=submit] {
     flex: 1;
     padding: 20px 0;
@@ -30,12 +38,19 @@ form {
     border-radius: 5px;
     font-size: 1.5rem;
     margin-left: 2rem; }
+    @media (max-width: 768px) {
+      form input[type=submit] {
+        margin-left: 1rem;
+        font-size: 1.2rem; } }
   form input[type=text] {
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     border-radius: .5rem;
     border: 0 none;
     flex: 3; }
+    @media (max-width: 768px) {
+      form input[type=text] {
+        font-size: 1.2rem; } }
 
 div#ui-blocker {
   position: fixed;
@@ -64,6 +79,7 @@ ul.gists > li {
 
 ul.gist {
   /* parent properties */
+  font-size: 1rem;
   display: grid;
   grid-template-rows: 1fr 2fr;
   grid-template-columns: 1fr 1fr;
@@ -80,6 +96,13 @@ ul.gist {
     display: flex;
     justify-content: space-between;
     width: 100%; }
+    @media (max-width: 768px) {
+      ul.gist .stats {
+        display: grid;
+        grid-template-rows: max-content;
+        grid-template-columns: 1fr;
+        text-align: right;
+        font-size: smaller; } }
   ul.gist > li:nth-of-type(1), ul.gist > li:nth-of-type(2) {
     display: flex;
     align-items: center; }

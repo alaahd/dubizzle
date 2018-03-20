@@ -18,7 +18,7 @@ export default class UserInput extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="gistUser" id="gistUser" autoComplete="off" placeholder="Insert username to search public gists" />
-                <input type="submit" name="submitGistUser" id="submitGistUser" value="Search User" />
+                <input type="submit" name="submitGistUser" id="submitGistUser" value="Search" />
             </form>
         )
     }
