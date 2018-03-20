@@ -32,11 +32,22 @@ class App extends Component {
       .then(res => {
         console.log(res);
 
+        //early detection of any response which is not 200
+        if (res.status && res.status !== 200) {
+          this.setState({
+            isLoading: false,
+            info: 'Request failed with status code ' + res.status
+          });
+          return;
+        }
+
         const gists = res.data;
+        const info = gists.length ? username : 'Request failed with status code 404';
+
         //update state with the fetched gists
         this.setState({
           isLoading: false,
-          info: username,
+          info,
           gists
         });
       })
@@ -48,11 +59,6 @@ class App extends Component {
           info: err.message
         });
       })
-
-    //this.setState({
-    //  username,
-    //  gists
-    //});
   }
 
   componentDidMount() {
