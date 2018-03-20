@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import UserInput from './components/UserInput';
 import ToggleDisplay from 'react-toggle-display';
+import Moment from 'react-moment';
+
 import './App.css';
 
 const API_BASE_URL = 'https://api.github.com';
@@ -65,9 +67,23 @@ class App extends Component {
           <ul className="gist">
             <li>
               <img className="avatar" src={gist.owner && gist.owner.avatar_url} width="50" height="50" alt={gist.owner && gist.owner.login} />
-              <a href="/">{gist.owner && gist.owner.login}</a> / <a href="/">{gist.files[Object.keys(gist.files)[0]].filename}</a>
+              <p>
+                <a href="/">{gist.owner && gist.owner.login}</a> / <a href="/">{gist.files[Object.keys(gist.files)[0]].filename}</a>
+                <span className="cratedAt">
+                  <Moment>
+                    {gist.created_at && gist.created_at}
+                  </Moment>
+                </span>
+              </p>
             </li>
-            <li>...</li>
+            <li>
+              <ul className="stats">
+                <li>{Object.keys(gist.files).length} files</li>
+                <li>forks</li>
+                <li>comments</li>
+                <li>stars</li>
+              </ul>
+            </li>
             <li>
               <h3>{gist.id && gist.id}</h3>
               <p>{gist.description && gist.description}</p>
