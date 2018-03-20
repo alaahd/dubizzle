@@ -50,7 +50,7 @@ div#ui-blocker {
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
+    background: #333 url('loading.gif') no-repeat center center;
 }
 
 section.head {
@@ -68,8 +68,32 @@ ul {
     list-style: none;
 }
 
-ul.gists li {
+ul.gists > li {
+    margin: 1rem 0 2rem;
+}
+
+ul.gist {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    text-align: left;
+}
+
+ul.gist img.avatar {
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+ul.gist > li:nth-of-type(1), ul.gist > li:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+}
+
+ul.gist > li:last-child {
+    grid-column: span 2;
     border: 1px solid #d3d3d3;
-    margin: 1rem 0;
     background: #eeeeee;
+    padding: 0 1rem;
+    margin-top: 0.1rem;
 }

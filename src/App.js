@@ -62,8 +62,17 @@ class App extends Component {
   renderGists(gist, index) {
     return (
         <li key={gist.id}>
-          <h3>{gist.id}</h3>
-          <p>{gist.description && gist.description}</p>
+          <ul className="gist">
+            <li>
+              <img className="avatar" src={gist.owner && gist.owner.avatar_url} width="50" height="50" alt={gist.owner && gist.owner.login} />
+              <a href="/">{gist.owner && gist.owner.login}</a> / <a href="/">{gist.files[Object.keys(gist.files)[0]].filename}</a>
+            </li>
+            <li>...</li>
+            <li>
+              <h3>{gist.id && gist.id}</h3>
+              <p>{gist.description && gist.description}</p>
+            </li>
+          </ul>
         </li>
     )
   }
