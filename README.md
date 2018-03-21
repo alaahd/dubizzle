@@ -13,7 +13,7 @@ to start webpack server on port 3000
 - Open your browser on the following URL
 http://localhost:3000/
 
-## Project specefecations
+## Specefecations
 - React 16
 - SASS
 - Responsive layout
