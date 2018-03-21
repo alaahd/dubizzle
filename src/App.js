@@ -31,7 +31,6 @@ class App extends Component {
 
     axios.get(targetUrl)
       .then(res => {
-        console.log(res);
 
         //early detection of any response which is not 200
         if (res.status && res.status !== 200) {

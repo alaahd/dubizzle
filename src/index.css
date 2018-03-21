@@ -68,6 +68,10 @@ section.head {
 main {
   max-width: 96%;
   margin: 0 auto; }
+  @media (max-width: 768px) {
+    main {
+      max-width: 100%;
+      margin: 0 15px; } }
 
 ul {
   margin: 0;
@@ -117,3 +121,13 @@ ul.gist {
     ul.gist > li:last-child:hover {
       border: 2px dashed #222;
       background: #f3f3f3; }
+  ul.gist ul.labels {
+    margin-top: 0.25rem;
+    display: flex;
+    font-size: small; }
+    ul.gist ul.labels li {
+      background-color: #E00000;
+      color: #FFF;
+      padding: 0.1rem 1rem;
+      margin-right: 0.5rem;
+      border-radius: 4px; }

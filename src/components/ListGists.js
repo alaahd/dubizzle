@@ -8,6 +8,20 @@ const ListGists = ({gists}) => {
     const renderdGists = gists.map((gist, index) => {
         const forksUrl = gist.forks_url + constants.API_OAUTH;
         const commentsUrl = gist.comments_url + constants.API_OAUTH;
+        const labels = [];
+
+        for (var ftype in gist.files) {
+            if (gist.files.hasOwnProperty(ftype)) {
+                //console.log(gist.files[ftype]);
+                if (gist.files[ftype] && typeof gist.files[ftype].language !== 'undefined' && gist.files[ftype].language) {
+                    labels.push(gist.files[ftype].language);
+                }
+
+            }
+        }
+
+        //console.log('------');
+
         return (
             <li key={gist.id}>
                 <ul className="gist">
@@ -17,12 +31,18 @@ const ListGists = ({gists}) => {
 
                         <p>
                             <a href="/">{gist.owner && gist.owner.login}</a> / <a
-                            href="/">{gist.files[Object.keys(gist.files)[0]].filename}</a>
-                <span className="cratedAt">
-                  <Moment>
-                      {gist.created_at && gist.created_at}
-                  </Moment>
-                </span>
+                            href="/">{gist.files[Object.keys(gist.files)[0]].filename}
+                            </a>
+                            <span className="cratedAt">
+                              <Moment>
+                                  {gist.created_at && gist.created_at}
+                              </Moment>
+                            </span>
+                            <div>
+                                <ul className="labels">
+                                    {labels.map(label => <li>{label}</li>)}
+                                </ul>
+                            </div>
                         </p>
                     </li>
                     <li>

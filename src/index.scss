@@ -6,6 +6,7 @@
 
 //define break points to target responsive design
 $M: 768px;
+$MASTER_COLOR_1: #E00000;
 
 // some helpful mixins
 
@@ -54,7 +55,7 @@ form {
   input[type=submit] {
     flex: 1;
     padding: 20px 0;
-    background: #E00000;
+    background: $MASTER_COLOR_1;
     color: #FFFFFF;
     border: 0 none;
     cursor: pointer;
@@ -97,6 +98,10 @@ section.head {
 main {
     max-width: 96%;
     margin: 0 auto;
+    @include mobile($M) {
+      max-width: 100%;
+      margin: 0 15px;
+    }
 }
 
 ul {
@@ -161,6 +166,19 @@ ul.gist {
     &:hover {
       border: 2px dashed #222;
       background: lighten(#eeeeee, 2%);;
+    }
+  }
+
+  ul.labels {
+    margin-top: 0.25rem;
+    display: flex;
+    font-size: small;
+    li {
+      background-color: $MASTER_COLOR_1;
+      color: #FFF;
+      padding: 0.1rem 1rem;
+      margin-right: 0.5rem;
+      border-radius: 4px;
     }
   }
 }
