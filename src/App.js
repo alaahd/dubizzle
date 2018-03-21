@@ -67,35 +67,6 @@ class App extends Component {
     });
   }
 
-  //renderGists(gist, index) {
-  //  const forksUrl = gist.forks_url + API_OAUTH;
-  //  const commentsUrl = gist.comments_url + API_OAUTH;
-  //  return (
-  //      <li key={gist.id}>
-  //        <ul className="gist">
-  //          <li>
-  //            <img className="avatar" src={gist.owner && gist.owner.avatar_url} width="50" height="50" alt={gist.owner && gist.owner.login} />
-  //            <p>
-  //              <a href="/">{gist.owner && gist.owner.login}</a> / <a href="/">{gist.files[Object.keys(gist.files)[0]].filename}</a>
-  //              <span className="cratedAt">
-  //                <Moment>
-  //                  {gist.created_at && gist.created_at}
-  //                </Moment>
-  //              </span>
-  //            </p>
-  //          </li>
-  //          <li>
-  //            <GistStats files={Object.keys(gist.files).length} forksUrl={forksUrl} commentsUrl={commentsUrl} />
-  //          </li>
-  //          <li>
-  //            <h3>{gist.id && gist.id}</h3>
-  //            <p>{gist.description && gist.description}</p>
-  //          </li>
-  //        </ul>
-  //      </li>
-  //  )
-  //}
-
   render() {
     return (
       <div className="App">

@@ -26,7 +26,6 @@ export default class GistStats extends Component {
                 const forks = _forks.data.length;
                 const comments = _comments.data.length;
                 //const stars = c.data.length;
-                console.log(_forks);
             if (forks || comments) {
                 //since we will update the local state, then it is recommended to update all values
                 that.setState({
