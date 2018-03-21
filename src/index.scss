@@ -136,8 +136,11 @@ ul.gist {
   .cratedAt {
     display: block;
   }
+  .stats_forks {
+    width: 100%;
+  }
 
-  .stats {
+  .stats, .forks {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -147,6 +150,17 @@ ul.gist {
       grid-template-columns: 1fr;
       text-align: right;
       font-size: smaller;
+    }
+  }
+
+  .forks {
+    font-size: small;
+    justify-content: space-around;
+    margin-top: 2rem;
+    li a {
+      font-size: small;
+      text-decoration: none;
+      color: #000;
     }
   }
 
@@ -163,6 +177,7 @@ ul.gist {
     margin-top: 0.1rem;
     cursor: pointer;
     box-sizing: border-box;
+    margin-top: 1rem;
     &:hover {
       border: 2px dashed #222;
       background: lighten(#eeeeee, 2%);;

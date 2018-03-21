@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import * as constants from '../utils/constants';
 import GistStats from './GistStats';
 import Moment from 'react-moment';
@@ -12,15 +12,12 @@ const ListGists = ({gists}) => {
 
         for (var ftype in gist.files) {
             if (gist.files.hasOwnProperty(ftype)) {
-                //console.log(gist.files[ftype]);
                 if (gist.files[ftype] && typeof gist.files[ftype].language !== 'undefined' && gist.files[ftype].language) {
                     labels.push(gist.files[ftype].language);
                 }
 
             }
         }
-
-        //console.log('------');
 
         return (
             <li key={gist.id}>
@@ -29,7 +26,7 @@ const ListGists = ({gists}) => {
                         <img className="avatar" src={gist.owner && gist.owner.avatar_url} width="50" height="50"
                              alt={gist.owner && gist.owner.login}/>
 
-                        <p>
+                        <span>
                             <a href="/">{gist.owner && gist.owner.login}</a> / <a
                             href="/">{gist.files[Object.keys(gist.files)[0]].filename}
                             </a>
@@ -38,12 +35,12 @@ const ListGists = ({gists}) => {
                                   {gist.created_at && gist.created_at}
                               </Moment>
                             </span>
-                            <div>
+                            <span>
                                 <ul className="labels">
-                                    {labels.map(label => <li>{label}</li>)}
+                                    {labels.map((label, index) => <li key={index}>{label}</li>)}
                                 </ul>
-                            </div>
-                        </p>
+                            </span>
+                        </span>
                     </li>
                     <li>
                         <GistStats files={Object.keys(gist.files).length} forksUrl={forksUrl}

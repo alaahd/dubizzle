@@ -96,17 +96,27 @@ ul.gist {
     font-size: smaller; }
   ul.gist .cratedAt {
     display: block; }
-  ul.gist .stats {
+  ul.gist .stats_forks {
+    width: 100%; }
+  ul.gist .stats, ul.gist .forks {
     display: flex;
     justify-content: space-between;
     width: 100%; }
     @media (max-width: 768px) {
-      ul.gist .stats {
+      ul.gist .stats, ul.gist .forks {
         display: grid;
         grid-template-rows: max-content;
         grid-template-columns: 1fr;
         text-align: right;
         font-size: smaller; } }
+  ul.gist .forks {
+    font-size: small;
+    justify-content: space-around;
+    margin-top: 2rem; }
+    ul.gist .forks li a {
+      font-size: small;
+      text-decoration: none;
+      color: #000; }
   ul.gist > li:nth-of-type(1), ul.gist > li:nth-of-type(2) {
     display: flex;
     align-items: center; }
@@ -117,7 +127,8 @@ ul.gist {
     padding: 0 1rem;
     margin-top: 0.1rem;
     cursor: pointer;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    margin-top: 1rem; }
     ul.gist > li:last-child:hover {
       border: 2px dashed #222;
       background: #f3f3f3; }
